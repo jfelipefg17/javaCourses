@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" scope="TEST">
+      <library name="JUnit5.8.1">
+        <CLASSES>
+          <root url="jar:///Applications/mongodb-junit-5-1.0.0.jar!/" />
+          <root url="jar:///Applications/mongodb-docker-1.0.0.jar!/" />
+          <root url="jar:///Applications/sql-docker-1.0.0.jar!/" />
+          <root url="jar:///Applications/docker-core-1.0.0.jar!/" />
+          <root url="jar:///Applications/testing-core-1.0.0.jar!/" />
+          <root url="jar:///Applications/guava-21.0.jar!/" />
+          <root url="jar:///Applications/jool-0.9.12.jar!/" />
+          <root url="jar:///Applications/docker-client-8.2.1.jar!/" />
+          <root url="jar:///Applications/jackson-jaxrs-json-provider-2.6.0.jar!/" />
+          <root url="jar:///Applications/jackson-jaxrs-base-2.6.0.jar!/" />
+          <root url="jar:///Applications/jackson-core-2.6.0.jar!/" />
+          <root url="jar:///Applications/jackson-module-jaxb-annotations-2.6.0.jar!/" />
+          <root url="jar:///Applications/jackson-datatype-guava-2.6.0.jar!/" />
+          <root url="jar:///Applications/jackson-databind-2.6.0.jar!/" />
+          <root url="jar:///Applications/jackson-annotations-2.6.0.jar!/" />
+          <root url="jar:///Applications/jersey-client-2.22.2.jar!/" />
+          <root url="jar:///Applications/javax.ws.rs-api-2.0.1.jar!/" />
+          <root url="jar:///Applications/jersey-common-2.22.2.jar!/" />
+          <root url="jar:///Applications/javax.annotation-api-1.2.jar!/" />
+          <root url="jar:///Applications/jersey-guava-2.22.2.jar!/" />
+          <root url="jar:///Applications/osgi-resource-locator-1.0.1.jar!/" />
+          <root url="jar:///Applications/hk2-api-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/hk2-utils-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/aopalliance-repackaged-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/javax.inject-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/hk2-locator-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/javassist-3.18.1-GA.jar!/" />
+          <root url="jar:///Applications/jersey-apache-connector-2.22.2.jar!/" />
+          <root url="jar:///Applications/jersey-media-json-jackson-2.22.2.jar!/" />
+          <root url="jar:///Applications/jersey-entity-filtering-2.22.2.jar!/" />
+          <root url="jar:///Applications/commons-compress-1.9.jar!/" />
+          <root url="jar:///Applications/httpclient-4.5.jar!/" />
+          <root url="jar:///Applications/commons-logging-1.2.jar!/" />
+          <root url="jar:///Applications/commons-codec-1.9.jar!/" />
+          <root url="jar:///Applications/httpcore-4.4.5.jar!/" />
+          <root url="jar:///Applications/jnr-unixsocket-0.8.jar!/" />
+          <root url="jar:///Applications/jnr-ffi-2.0.3.jar!/" />
+          <root url="jar:///Applications/jffi-1.2.9.jar!/" />
+          <root url="jar:///Applications/jffi-1.2.9-native.jar!/" />
+          <root url="jar:///Applications/asm-5.0.3.jar!/" />
+          <root url="jar:///Applications/asm-commons-5.0.3.jar!/" />
+          <root url="jar:///Applications/asm-analysis-5.0.3.jar!/" />
+          <root url="jar:///Applications/asm-tree-5.0.3.jar!/" />
+          <root url="jar:///Applications/asm-util-5.0.3.jar!/" />
+          <root url="jar:///Applications/jnr-x86asm-1.0.2.jar!/" />
+          <root url="jar:///Applications/jnr-constants-0.8.7.jar!/" />
+          <root url="jar:///Applications/jnr-enxio-0.9.jar!/" />
+          <root url="jar:///Applications/jnr-posix-3.0.12.jar!/" />
+          <root url="jar:///Applications/commons-lang-2.6.jar!/" />
+          <root url="jar:///Applications/bcpkix-jdk15on-1.52.jar!/" />
+          <root url="jar:///Applications/bcprov-jdk15on-1.52.jar!/" />
+          <root url="jar:///Applications/jooq-3.8.7.jar!/" />
+          <root url="jar:///Applications/jooq-meta-3.8.7.jar!/" />
+          <root url="jar:///Applications/mongo-java-driver-3.3.0.jar!/" />
+          <root url="jar:///Applications/log4j-api-2.8.1.jar!/" />
+          <root url="jar:///Applications/log4j-core-2.8.1.jar!/" />
+          <root url="jar:///Applications/log4j-slf4j-impl-2.8.1.jar!/" />
+          <root url="jar:///Applications/slf4j-api-1.7.24.jar!/" />
+          <root url="jar:///Applications/core-junit5-1.0.0.jar!/" />
+          <root url="jar:///Applications/junit-platform-runner-1.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit-platform-launcher-1.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit-platform-suite-api-1.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit-4.12.jar!/" />
+          <root url="jar:///Applications/hamcrest-core-1.3.jar!/" />
+          <root url="jar:///Applications/junit-jupiter-engine-5.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit-platform-engine-1.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit-jupiter-api-5.0.0-M4.jar!/" />
+          <root url="jar:///Applications/opentest4j-1.0.0-M2.jar!/" />
+          <root url="jar:///Applications/junit-platform-commons-1.0.0-M4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library name="JUnit4">
+        <CLASSES>
+          <root url="jar:///Applications/junit5/mongodb-junit-5-1.0.0.jar!/" />
+          <root url="jar:///Applications/junit5/mongodb-docker-1.0.0.jar!/" />
+          <root url="jar:///Applications/junit5/sql-docker-1.0.0.jar!/" />
+          <root url="jar:///Applications/junit5/docker-core-1.0.0.jar!/" />
+          <root url="jar:///Applications/junit5/testing-core-1.0.0.jar!/" />
+          <root url="jar:///Applications/junit5/guava-21.0.jar!/" />
+          <root url="jar:///Applications/junit5/jool-0.9.12.jar!/" />
+          <root url="jar:///Applications/junit5/docker-client-8.2.1.jar!/" />
+          <root url="jar:///Applications/junit5/jackson-jaxrs-json-provider-2.6.0.jar!/" />
+          <root url="jar:///Applications/junit5/jackson-jaxrs-base-2.6.0.jar!/" />
+          <root url="jar:///Applications/junit5/jackson-core-2.6.0.jar!/" />
+          <root url="jar:///Applications/junit5/jackson-module-jaxb-annotations-2.6.0.jar!/" />
+          <root url="jar:///Applications/junit5/jackson-datatype-guava-2.6.0.jar!/" />
+          <root url="jar:///Applications/junit5/jackson-databind-2.6.0.jar!/" />
+          <root url="jar:///Applications/junit5/jackson-annotations-2.6.0.jar!/" />
+          <root url="jar:///Applications/junit5/jersey-client-2.22.2.jar!/" />
+          <root url="jar:///Applications/junit5/javax.ws.rs-api-2.0.1.jar!/" />
+          <root url="jar:///Applications/junit5/jersey-common-2.22.2.jar!/" />
+          <root url="jar:///Applications/junit5/javax.annotation-api-1.2.jar!/" />
+          <root url="jar:///Applications/junit5/jersey-guava-2.22.2.jar!/" />
+          <root url="jar:///Applications/junit5/osgi-resource-locator-1.0.1.jar!/" />
+          <root url="jar:///Applications/junit5/hk2-api-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/junit5/hk2-utils-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/junit5/aopalliance-repackaged-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/junit5/javax.inject-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/junit5/hk2-locator-2.4.0-b34.jar!/" />
+          <root url="jar:///Applications/junit5/javassist-3.18.1-GA.jar!/" />
+          <root url="jar:///Applications/junit5/jersey-apache-connector-2.22.2.jar!/" />
+          <root url="jar:///Applications/junit5/jersey-media-json-jackson-2.22.2.jar!/" />
+          <root url="jar:///Applications/junit5/jersey-entity-filtering-2.22.2.jar!/" />
+          <root url="jar:///Applications/junit5/commons-compress-1.9.jar!/" />
+          <root url="jar:///Applications/junit5/httpclient-4.5.jar!/" />
+          <root url="jar:///Applications/junit5/commons-logging-1.2.jar!/" />
+          <root url="jar:///Applications/junit5/commons-codec-1.9.jar!/" />
+          <root url="jar:///Applications/junit5/httpcore-4.4.5.jar!/" />
+          <root url="jar:///Applications/junit5/jnr-unixsocket-0.8.jar!/" />
+          <root url="jar:///Applications/junit5/jnr-ffi-2.0.3.jar!/" />
+          <root url="jar:///Applications/junit5/jffi-1.2.9.jar!/" />
+          <root url="jar:///Applications/junit5/jffi-1.2.9-native.jar!/" />
+          <root url="jar:///Applications/junit5/asm-5.0.3.jar!/" />
+          <root url="jar:///Applications/junit5/asm-commons-5.0.3.jar!/" />
+          <root url="jar:///Applications/junit5/asm-analysis-5.0.3.jar!/" />
+          <root url="jar:///Applications/junit5/asm-tree-5.0.3.jar!/" />
+          <root url="jar:///Applications/junit5/asm-util-5.0.3.jar!/" />
+          <root url="jar:///Applications/junit5/jnr-x86asm-1.0.2.jar!/" />
+          <root url="jar:///Applications/junit5/jnr-constants-0.8.7.jar!/" />
+          <root url="jar:///Applications/junit5/jnr-enxio-0.9.jar!/" />
+          <root url="jar:///Applications/junit5/jnr-posix-3.0.12.jar!/" />
+          <root url="jar:///Applications/junit5/commons-lang-2.6.jar!/" />
+          <root url="jar:///Applications/junit5/bcpkix-jdk15on-1.52.jar!/" />
+          <root url="jar:///Applications/junit5/bcprov-jdk15on-1.52.jar!/" />
+          <root url="jar:///Applications/junit5/jooq-3.8.7.jar!/" />
+          <root url="jar:///Applications/junit5/jooq-meta-3.8.7.jar!/" />
+          <root url="jar:///Applications/junit5/mongo-java-driver-3.3.0.jar!/" />
+          <root url="jar:///Applications/junit5/log4j-api-2.8.1.jar!/" />
+          <root url="jar:///Applications/junit5/log4j-core-2.8.1.jar!/" />
+          <root url="jar:///Applications/junit5/log4j-slf4j-impl-2.8.1.jar!/" />
+          <root url="jar:///Applications/junit5/slf4j-api-1.7.24.jar!/" />
+          <root url="jar:///Applications/junit5/core-junit5-1.0.0.jar!/" />
+          <root url="jar:///Applications/junit5/junit-platform-runner-1.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit5/junit-platform-launcher-1.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit5/junit-platform-suite-api-1.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit5/junit-4.12.jar!/" />
+          <root url="jar:///Applications/junit5/hamcrest-core-1.3.jar!/" />
+          <root url="jar:///Applications/junit5/junit-jupiter-engine-5.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit5/junit-platform-engine-1.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit5/junit-jupiter-api-5.0.0-M4.jar!/" />
+          <root url="jar:///Applications/junit5/opentest4j-1.0.0-M2.jar!/" />
+          <root url="jar:///Applications/junit5/junit-platform-commons-1.0.0-M4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
