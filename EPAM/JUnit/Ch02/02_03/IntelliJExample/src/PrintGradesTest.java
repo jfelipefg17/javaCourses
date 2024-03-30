@@ -10,7 +10,7 @@ public class PrintGradesTest {
     public void test()
     {
         PrintGrades pg = new PrintGrades();
-        String result = pg.print(90);
+        String result = pg.print(94);
         assertEquals("You got an A!", result);
     }
 

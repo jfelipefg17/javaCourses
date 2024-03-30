@@ -16,7 +16,7 @@ public class SuiteTest1 {
     @Test
     public void testPrintMessage()
     {
-        int num=5;
+        int num=6;
         System.out.println("Suite Test1 is executing");
         Assert.assertEquals(5,num);
     }
