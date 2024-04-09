@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Java: Servicios Web</title>
+	<script src="liga.js"></script>	
+</head>
+<body>
+
+<h1>Liga</h1>
+<div id="error" style="color: red"></div>
+
+<h2>Listado de equipos</h2>
+<button type="submit" onclick="verEquipos()">Listar Equipos</button>
+<div id="listado"></div>
+
+<h2>Consulta un equipo</h2>
+Id: <input type="text" id="aConsultar" value="E1" />
+<button type="submit" onclick="verEquipo()">Ver equipo</button>
+<div id="consulta"></div>
+
+<h2>Crear equipo</h2>
+Id: <input type="text" id="idACrear" value="E3" />
+Nombre: <input type="text" id="nombreACrear" value="Azul" />
+<button type="submit" onclick="crearEquipo()">Crear equipo</button>
+<div id="creado"></div>
+
+<h2>Modificar equipo</h2>
+<p>Primero busca el equipo con "Ver equipo"</p>
+Id: <input type="text" readonly id="idAModificar" />
+Nombre: <input type="text" id="nombreAModificar" />
+<button type="submit" onclick="modificarEquipo()">Modificar equipo</button>
+<div id="modificado"></div>
+
+<h2>A&ntilde;adir jugador a equipo</h2>
+Id Equipo: <input type="text" id="idEquipoAnadir" value="E1" />
+Id Jugador: <input type="text" id="idJugadorAnadir" value="J05" />
+<button type="submit" onclick="anadirJugador()">A&ntilde;adir jugador a equipo</button>
+<div id="anadido"></div>
+
+<h2>Borrar equipo</h2>
+Id: <input type="text" id="aBorrar" value="E1" />
+<button type="submit" onclick="borrarEquipo()">Borrar equipo</button>
+<div id="borrado"></div>
+
+</body>
+</html>
