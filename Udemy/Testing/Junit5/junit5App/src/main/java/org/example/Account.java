@@ -33,5 +33,31 @@ public class Account {
   }
 
 
+  public void debit(BigDecimal amount){
+    this.balance = this.balance.subtract(amount);
+  }
 
+  public void credit(BigDecimal amount){
+    this.balance = this.balance.add(amount);
+  }
+
+
+
+
+
+
+  @Override
+  public boolean equals(Object obj) {
+
+    if (!(obj instanceof Account)){
+      return false;
+    }
+
+    Account c = (Account) obj;
+
+    if (this.person == null || this.balance == null){
+      return false;
+    }
+    return this.person.equals(c.getPerson()) && this.balance.equals(c.getBalance());
+  }
 }
