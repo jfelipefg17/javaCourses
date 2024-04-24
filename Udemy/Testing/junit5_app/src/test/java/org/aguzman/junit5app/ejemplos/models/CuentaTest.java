@@ -69,7 +69,7 @@ class CuentaTest {
             assertNotNull(real, () -> "la cuenta no puede ser nula");
             assertEquals(esperado, real, () -> "el nombre de la cuenta no es el que se esperaba: se esperaba " + esperado
                     + " sin embargo fue " + real);
-            assertTrue(real.equals("Andres"), () -> "nombre cuenta esperada debe ser igual a la real");
+            assertEquals("Andres", real, () -> "nombre cuenta esperada debe ser igual a la real");
         }
 
         @Test
