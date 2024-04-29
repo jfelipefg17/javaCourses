@@ -23,15 +23,17 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 @ExtendWith(MockitoExtension.class)
 class ExamenServiceImplTest {
 
+    //creating mocks
     @Mock
     ExamenRepository repository;
-
     @Mock
     PreguntaRepository preguntaRepository;
 
+    //create instance of service injection
     @InjectMocks
     ExamenServiceImpl service;
 
