@@ -8,7 +8,7 @@ import org.test.springBoot.springbootTest.Repositories.BankRepository;
 
 import java.math.BigDecimal;
 
-
+//@Service
 public class AccountServiceImpl implements AccountService {
 
   private final AccountRepository accountRepository;
@@ -38,10 +38,7 @@ public class AccountServiceImpl implements AccountService {
 
   @Override
   public void transfer(Long numberSender, Long numberDestination, BigDecimal amount, Long bankId) {
-    Bank bank = bankRepository.findById(bankId);
-    int totalTransfers = bank.getNumberOfTransfers();
-    bank.setNumberOfTransfers(++totalTransfers);
-    bankRepository.update(bank);
+
 
     Account accountSender = accountRepository.findById(numberSender);
     accountSender.debit(amount);
@@ -50,5 +47,10 @@ public class AccountServiceImpl implements AccountService {
     Account accountDestination = accountRepository.findById(numberDestination);
     accountDestination.credit(amount);
     accountRepository.update(accountDestination);
+
+    Bank bank = bankRepository.findById(bankId);
+    int totalTransfers = bank.getNumberOfTransfers();
+    bank.setNumberOfTransfers(++totalTransfers);
+    bankRepository.update(bank);
   }
 }
