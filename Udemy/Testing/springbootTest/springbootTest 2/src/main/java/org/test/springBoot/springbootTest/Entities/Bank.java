@@ -1,9 +1,17 @@
 package org.test.springBoot.springbootTest.Entities;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "banks")
 public class Bank {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private  Long id;
   private String name;
   private int numberOfTransfers;
+
 
   public Bank() {
   }

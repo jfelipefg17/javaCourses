@@ -1,25 +1,21 @@
 package org.test.springBoot.springbootTest;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.test.springBoot.springbootTest.Entities.Account;
 import org.test.springBoot.springbootTest.Entities.Bank;
 import org.test.springBoot.springbootTest.Exceptions.EnoughBalance;
 import org.test.springBoot.springbootTest.Repositories.AccountRepository;
 import org.test.springBoot.springbootTest.Repositories.BankRepository;
-import org.test.springBoot.springbootTest.Services.AccountService;
 import org.test.springBoot.springbootTest.Services.AccountServiceImpl;
 
 import java.math.BigDecimal;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class SpringbootTestExampleApplicationTests {
@@ -48,89 +44,85 @@ class SpringbootTestExampleApplicationTests {
 
 
 
-		Data.ACCOUNT_001.setBalance(new BigDecimal("1000"));
-		Data.ACCOUNT_002.setBalance(new BigDecimal("2000"));
-
-		Data.BANK.setNumberOfTransfers(0);
 	}
 
 	@Test
 	void contextLoads() {
-		when(accountRepository.findById(1l)).thenReturn(Data.ACCOUNT_001);
-		when(accountRepository.findById(2l)).thenReturn(Data.ACCOUNT_002);
-		when(bankRepository.findById(1L)).thenReturn(Data.BANK);
+		Mockito.when(accountRepository.findById(1l)).thenReturn(Data.createAccount001());
+		Mockito.when(accountRepository.findById(2l)).thenReturn(Data.createAccount002());
+		Mockito.when(bankRepository.findById(1L)).thenReturn(Data.createBank());
 
 		BigDecimal balanceOrigin = accountService.findBalance(1L);
 		BigDecimal balanceDestination = accountService.findBalance(2l);
 
 
-		assertEquals("1000", balanceOrigin.toPlainString());
-		assertEquals("2000", balanceDestination.toPlainString());
+		Assertions.assertEquals("1000", balanceOrigin.toPlainString());
+		Assertions.assertEquals("2000", balanceDestination.toPlainString());
 
 		accountService.transfer(1L, 2L, new BigDecimal("100"), 1L);
 
 		balanceOrigin = accountService.findBalance(1L);
 		balanceDestination = accountService.findBalance(2l);
 
-		assertEquals("900", balanceOrigin.toPlainString());
-		assertEquals("2100", balanceDestination.toPlainString());
+		Assertions.assertEquals("900", balanceOrigin.toPlainString());
+		Assertions.assertEquals("2100", balanceDestination.toPlainString());
 
 		int total = accountService.totalTransfers(1L);
-		assertEquals(1, total);
+		Assertions.assertEquals(1, total);
 
-		verify(accountRepository, times(3)).findById(1L);
-		verify(accountRepository, times(3)).findById(2L);
-		verify(accountRepository, times(2)).update(any(Account.class));
+		Mockito.verify(accountRepository, Mockito.times(3)).findById(1L);
+		Mockito.verify(accountRepository, Mockito.times(3)).findById(2L);
+		Mockito.verify(accountRepository, Mockito.times(2)).save(ArgumentMatchers.any(Account.class));
 
-		verify(bankRepository, times(2)).findById(1L);
-		verify(bankRepository).update(any(Bank.class));
+		Mockito.verify(bankRepository, Mockito.times(2)).findById(1L);
+		Mockito.verify(bankRepository).save(ArgumentMatchers.any(Bank.class));
 	}
 
 	@Test
 	void contextLoads2() {
-		when(accountRepository.findById(1l)).thenReturn(Data.ACCOUNT_001);
-		when(accountRepository.findById(2l)).thenReturn(Data.ACCOUNT_002);
-		when(bankRepository.findById(1L)).thenReturn(Data.BANK);
+		Mockito.when(accountRepository.findById(1l)).thenReturn(Data.createAccount001());
+		Mockito.when(accountRepository.findById(2l)).thenReturn(Data.createAccount002());
+		Mockito.when(bankRepository.findById(1L)).thenReturn(Data.createBank());
 
 		BigDecimal balanceOrigin = accountService.findBalance(1L);
 		BigDecimal balanceDestination = accountService.findBalance(2l);
 
 
-		assertEquals("1000", balanceOrigin.toPlainString());
-		assertEquals("2000", balanceDestination.toPlainString());
+		Assertions.assertEquals("1000", balanceOrigin.toPlainString());
+		Assertions.assertEquals("2000", balanceDestination.toPlainString());
 
-		assertThrows(EnoughBalance.class, () -> {
+		Assertions.assertThrows(EnoughBalance.class, () -> {
 			accountService.transfer(1L, 2L, new BigDecimal("1200"), 1L);
 		});
 
 		balanceOrigin = accountService.findBalance(1L);
 		balanceDestination = accountService.findBalance(2l);
 
-		assertEquals("1000", balanceOrigin.toPlainString());
-		assertEquals("2000", balanceDestination.toPlainString());
+		Assertions.assertEquals("1000", balanceOrigin.toPlainString());
+		Assertions.assertEquals("2000", balanceDestination.toPlainString());
 
 		int total = accountService.totalTransfers(1L);
-		assertEquals(0, total);
+		Assertions.assertEquals(0, total);
 
-		verify(accountRepository, times(3)).findById(1L);
-		verify(accountRepository, times(2)).findById(2L);
-		verify(accountRepository, never()).update(any(Account.class));
+		Mockito.verify(accountRepository, Mockito.times(3)).findById(1L);
+		Mockito.verify(accountRepository, Mockito.times(2)).findById(2L);
+		Mockito.verify(accountRepository, Mockito.never()).save(ArgumentMatchers.any(Account.class));
 
-		verify(bankRepository, times(1)).findById(1L);
-		verify(bankRepository, never()).update(any(Bank.class));
+		Mockito.verify(bankRepository, Mockito.times(1)).findById(1L);
+		Mockito.verify(bankRepository, Mockito.never()).save(ArgumentMatchers.any(Bank.class));
 
-		verify(accountRepository, never()).findAll();
+		Mockito.verify(accountRepository, Mockito.never()).findAll();
 	}
 
 	@Test
 	void contextLoads3() {
-		when(accountRepository.findById(1L)).thenReturn(Data.ACCOUNT_001);
+		Mockito.when(accountRepository.findById(1L)).thenReturn(Data.createAccount001());
 
 		Account account1 = accountService.findById(1L);
 		Account account2 = accountService.findById(1L);
 
 
-		assertSame(account1, account2);
+		Assertions.assertSame(account1, account2);
 
 	}
 }

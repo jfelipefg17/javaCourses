@@ -1,17 +1,24 @@
 package org.test.springBoot.springbootTest.Entities;
 
+import jakarta.persistence.*;
+import org.hibernate.service.spi.InjectService;
 import org.test.springBoot.springbootTest.Exceptions.EnoughBalance;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
+
+@Entity
+@Table(name = "accounts")
 public class Account {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String person;
   private BigDecimal balance;
 
   public Account(){
-
   }
 
   public Account(Long id, String person, BigDecimal balance) {
