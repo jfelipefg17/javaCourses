@@ -8,7 +8,7 @@ import org.test.springBoot.springbootTest.Repositories.BankRepository;
 
 import java.math.BigDecimal;
 
-//@Service
+@Service
 public class AccountServiceImpl implements AccountService {
 
   private final AccountRepository accountRepository;

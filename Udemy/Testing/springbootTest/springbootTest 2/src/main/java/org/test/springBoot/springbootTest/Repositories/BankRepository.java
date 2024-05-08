@@ -6,7 +6,7 @@ import org.test.springBoot.springbootTest.Entities.Bank;
 
 import java.util.List;
 
-
+@Repository
 public interface BankRepository extends JpaRepository<Bank, Long> {
 //  List<Bank> findAll();
 //
