@@ -29,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+//this is for webMVC test for account controller
 @WebMvcTest(CuentaController.class)
 class CuentaControllerTest {
 
@@ -38,6 +39,7 @@ class CuentaControllerTest {
     @MockBean
     private CuentaService cuentaService;
 
+    // this let as make whatever to a json
     ObjectMapper objectMapper;
 
     @BeforeEach
@@ -58,6 +60,7 @@ class CuentaControllerTest {
                 .andExpect(jsonPath("$.persona").value("Andrés"))
                 .andExpect(jsonPath("$.saldo").value("1000"));
 
+        //to check if finById was used
         verify(cuentaService).findById(1L);
     }
 
@@ -71,6 +74,8 @@ class CuentaControllerTest {
         dto.setMonto(new BigDecimal("100"));
         dto.setBancoId(1L);
 
+
+// to see it in json type
         System.out.println(objectMapper.writeValueAsString(dto));
 
         Map<String, Object> response = new HashMap<>();
@@ -79,9 +84,11 @@ class CuentaControllerTest {
         response.put("mensaje", "Transferencia realizada con éxito!");
         response.put("transaccion", dto);
 
+// to see it in json type
         System.out.println(objectMapper.writeValueAsString(response));
 
         // When
+        //this let as make what ever to json type
         mvc.perform(post("/api/cuentas/transferir")
                 .contentType(MediaType.APPLICATION_JSON)
         .content(objectMapper.writeValueAsString(dto)))
@@ -113,6 +120,7 @@ class CuentaControllerTest {
                 .andExpect(jsonPath("$[1].persona").value("Jhon"))
                 .andExpect(jsonPath("$[0].saldo").value("1000"))
                 .andExpect(jsonPath("$[1].saldo").value("2000"))
+                //size of list
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(content().json(objectMapper.writeValueAsString(cuentas)));
 

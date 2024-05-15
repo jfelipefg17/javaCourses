@@ -18,6 +18,7 @@ import java.util.Map;
 @RequestMapping("/api/cuentas")
 public class CuentaController {
 
+    //dependency injection
     @Autowired
     private CuentaService cuentaService;
 
@@ -39,7 +40,9 @@ public class CuentaController {
         return cuentaService.save(cuenta);
     }
 
+
     @PostMapping("/transferir")
+
     public ResponseEntity<?> transferir(@RequestBody TransaccionDto dto) {
         cuentaService.transferir(dto.getCuentaOrigenId(),
                 dto.getCuentaDestinoId(),
