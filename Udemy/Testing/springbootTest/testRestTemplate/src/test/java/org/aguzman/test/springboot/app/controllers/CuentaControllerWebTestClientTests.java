@@ -24,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.Matchers.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-// choose randomly a free port like 8080 to set up a real server
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 class CuentaControllerWebTestClientTests {
 
@@ -39,7 +38,6 @@ class CuentaControllerWebTestClientTests {
     }
 
     @Test
-    //using order I can select what test run first, second, etc
     @Order(1)
     void testTransferir() throws JsonProcessingException {
         // given
@@ -60,7 +58,6 @@ class CuentaControllerWebTestClientTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(dto)
                 .exchange()
-                // everything before exchange is the answer odf the request
                 // then
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
@@ -84,9 +81,6 @@ class CuentaControllerWebTestClientTests {
                 .jsonPath("$.date").isEqualTo(LocalDate.now().toString())
                 .json(objectMapper.writeValueAsString(response));
 
-
-        //both did the same tests, but first one is using consumeWith and second one is native json test
-
     }
 
     @Test
@@ -104,8 +98,6 @@ class CuentaControllerWebTestClientTests {
                 .json(objectMapper.writeValueAsString(cuenta));
     }
 
-    //between detalle1 and detalle2 are the same thing but different way to test
-
     @Test
     @Order(3)
     void testDetalle2() {
@@ -122,12 +114,10 @@ class CuentaControllerWebTestClientTests {
                 });
     }
 
-
-
     @Test
     @Order(4)
     void testListar() {
-        client.get().uri("/api/cuentas/list").exchange()
+        client.get().uri("/api/cuentas").exchange()
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody()
@@ -141,13 +131,10 @@ class CuentaControllerWebTestClientTests {
                 .jsonPath("$").value(hasSize(2));
     }
 
-
-    //between lista1 and lista2 are the same thing but different way to test
-
     @Test
     @Order(5)
     void testListar2() {
-        client.get().uri("/api/cuentas/list").exchange()
+        client.get().uri("/api/cuentas").exchange()
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBodyList(Cuenta.class)
@@ -214,7 +201,7 @@ class CuentaControllerWebTestClientTests {
     @Test
     @Order(8)
     void testEliminar() {
-        client.get().uri("/api/cuentas/list").exchange()
+        client.get().uri("/api/cuentas").exchange()
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBodyList(Cuenta.class)
@@ -225,7 +212,7 @@ class CuentaControllerWebTestClientTests {
                 .expectStatus().isNoContent()
                 .expectBody().isEmpty();
 
-        client.get().uri("/api/cuentas/list").exchange()
+        client.get().uri("/api/cuentas").exchange()
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBodyList(Cuenta.class)

@@ -22,7 +22,7 @@ public class CuentaController {
     @Autowired
     private CuentaService cuentaService;
 
-    @GetMapping("/list")
+    @GetMapping
     @ResponseStatus(OK)
     public List<Cuenta> listar() {
         return cuentaService.findAll();
