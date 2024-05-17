@@ -24,6 +24,8 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+//Order has to be imported by junit not spring
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CuentaControllerTestRestTemplateTest {
@@ -33,6 +35,7 @@ class CuentaControllerTestRestTemplateTest {
 
     private ObjectMapper objectMapper;
 
+    // this is for know what port is using
     @LocalServerPort
     private int puerto;
 
@@ -52,6 +55,7 @@ class CuentaControllerTestRestTemplateTest {
 
         ResponseEntity<String> response = client.
                 postForEntity(crearUri("/api/cuentas/transferir"), dto, String.class);
+
         System.out.println(puerto);
         String json = response.getBody();
         System.out.println(json);
@@ -73,6 +77,7 @@ class CuentaControllerTestRestTemplateTest {
         response2.put("mensaje", "Transferencia realizada con éxito!");
         response2.put("transaccion", dto);
 
+// with this we can compare all the json with the expected json
         assertEquals(objectMapper.writeValueAsString(response2), json);
 
     }
@@ -83,6 +88,7 @@ class CuentaControllerTestRestTemplateTest {
         ResponseEntity<Cuenta> respuesta = client.getForEntity(crearUri("/api/cuentas/1"), Cuenta.class);
         Cuenta cuenta = respuesta.getBody();
         assertEquals(HttpStatus.OK, respuesta.getStatusCode());
+        //with this we check that the response come in json data type
         assertEquals(MediaType.APPLICATION_JSON, respuesta.getHeaders().getContentType());
 
         assertNotNull(cuenta);
@@ -109,6 +115,8 @@ class CuentaControllerTestRestTemplateTest {
         assertEquals("John", cuentas.get(1).getPersona());
         assertEquals("2100.00", cuentas.get(1).getSaldo().toPlainString());
 
+
+        // if we do it using json we need to throw JsonProcessingException
         JsonNode json = objectMapper.readTree(objectMapper.writeValueAsString(cuentas));
         assertEquals(1L, json.get(0).path("id").asLong());
         assertEquals("Andrés", json.get(0).path("persona").asText());
@@ -123,6 +131,7 @@ class CuentaControllerTestRestTemplateTest {
     void testGuardar() {
         Cuenta cuenta = new Cuenta(null, "Pepa", new BigDecimal("3800"));
 
+// with this we pass the thing to save in the database
         ResponseEntity<Cuenta> respuesta = client.postForEntity(crearUri("/api/cuentas"), cuenta, Cuenta.class);
         assertEquals(HttpStatus.CREATED, respuesta.getStatusCode());
         assertEquals(MediaType.APPLICATION_JSON, respuesta.getHeaders().getContentType());
@@ -144,6 +153,7 @@ class CuentaControllerTestRestTemplateTest {
         //client.delete(crearUri("/api/cuentas/3"));
         Map<String, Long> pathVariables = new HashMap<>();
         pathVariables.put("id", 3L);
+        // this is for delete really the account and have more info
         ResponseEntity<Void> exchange = client.exchange(crearUri("/api/cuentas/{id}"), HttpMethod.DELETE, null, Void.class,
                 pathVariables);
 
@@ -159,6 +169,7 @@ class CuentaControllerTestRestTemplateTest {
         assertFalse(respuestaDetalle.hasBody());
     }
 
+    // to short the url and port
     private String crearUri(String uri) {
         return "http://localhost:" + puerto + uri;
     }
