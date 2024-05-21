@@ -1,4 +1,14 @@
 
-	java:S112 "FDefine and throw a dedicated exception instead of using a generic one.(ώ‡ώÿÿÿÿ8Δ΅εΗω1J$aa4c1d14-065f-4dc8-8abd-70f9b1fa8624
-΅	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(τ½±ξύÿÿÿÿ8Ζ΅εΗω1J$3d7b21c6-cb42-492c-afe2-817abf636585
-r	java:S106""+Replace this use of System.out by a logger.(¬ΠΛ‹ωÿÿÿÿ8Ϊ΅εΗω1J$a044fe20-e779-4a53-9fcc-a67ed6eee646
+b	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(΄Χω8­ƒακω1
+g	java:S112S"FDefine and throw a dedicated exception instead of using a generic one.(ώ‡ώÿÿÿÿ8®ƒακω1
+g	java:S112C"FDefine and throw a dedicated exception instead of using a generic one.(ϋο•ώÿÿÿÿ8®ƒακω1
+J
+java:S1604d"(Make this anonymous inner class a lambda(Γ®­ωÿÿÿÿ8®ƒακω1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(τ½±ξύÿÿÿÿ8°ƒακω1
+‰
+java:S1130#"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(΄Χω8Ύƒακω1
+
+java:S1130C"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ϋο•ώÿÿÿÿ8Βƒακω1
+€
+java:S1157P"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(δª8Δƒακω1
+G	java:S106U"+Replace this use of System.out by a logger.(μΔΠΘ8Δƒακω1

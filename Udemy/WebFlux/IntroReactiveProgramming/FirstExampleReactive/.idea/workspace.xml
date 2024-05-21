@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5515efbd-39ea-4075-845a-36986233c81c" name="Changes" comment="" />
+    <list default="true" id="5515efbd-39ea-4075-845a-36986233c81c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../firstReactiveApp/src/main/java/com/springBootReactive/app/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/659c913f861b921315decdeb8780fcec04e2918f" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/659c913f861b921315decdeb8780fcec04e2918f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../firstReactiveApp/src/main/java/com/springBootReactive/app/FirstReactiveProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../firstReactiveApp/src/main/java/com/springBootReactive/app/FirstReactiveProjectApplication.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
@@ -60,6 +74,9 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="FirstExampleReactive" />
@@ -147,7 +164,7 @@
       <updated>1716225409937</updated>
       <workItem from="1716225411063" duration="970000" />
       <workItem from="1716250794492" duration="1145000" />
-      <workItem from="1716253026838" duration="4226000" />
+      <workItem from="1716253026838" duration="14891000" />
     </task>
     <servers />
   </component>
