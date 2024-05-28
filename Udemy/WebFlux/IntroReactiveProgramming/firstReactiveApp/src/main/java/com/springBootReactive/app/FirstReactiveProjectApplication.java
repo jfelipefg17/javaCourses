@@ -1,6 +1,8 @@
 package com.springBootReactive.app;
 
+import com.springBootReactive.app.entity.Comments;
 import com.springBootReactive.app.entity.User;
+import com.springBootReactive.app.entity.UserComments;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -9,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.xml.stream.events.Comment;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +33,8 @@ public class FirstReactiveProjectApplication implements CommandLineRunner {
 
     iterableExample();
     iterableExampleFlatMap();
+    exampleToString();
+    exampleUserCommentsFlatMap();
   }
 
   public void iterableExampleFlatMap() throws Exception {
@@ -104,4 +109,52 @@ public class FirstReactiveProjectApplication implements CommandLineRunner {
               }
             });
   }
+
+  public void exampleToString() throws Exception {
+
+    List<User> usersList = new ArrayList<>();
+
+    usersList.add(new User("Andres", "df"));
+    usersList.add(new User("Pedro", "Fulano"));
+    usersList.add(new User("Diego", "lkjhj"));
+    usersList.add(new User("Juan", " ad"));
+    usersList.add(new User("Bruce", "Lee"));
+    usersList.add(new User("Bruce", "Willis"));
+
+    // this is a publisher that means an observer
+    Flux.fromIterable(usersList)
+            // with this we change te flux to strings
+            .map(user -> user.getName().toUpperCase().concat(" ").concat(user.getLastName().toUpperCase()))
+            .flatMap(name -> {
+              if (name.contains("Bruce".toUpperCase())) {
+                return Mono.just(name);
+              } else{
+                return Mono.empty();
+              }
+            })
+            .map(name -> {
+              return name.toUpperCase();
+            })
+            .subscribe(u -> log.info(u.toString()));
+  }
+
+  public void exampleUserCommentsFlatMap () {
+
+    Mono<User> userMono = Mono.fromCallable(() -> new User("felipe", "florez"));
+
+    Mono<Comments> commentsMono = Mono.fromCallable(() -> {
+      Comments comments = new Comments();
+      comments.addComment("Es lindo");
+      comments.addComment("Es amable");
+      comments.addComment("nada");
+      return comments;
+
+    });
+
+    // with this
+    userMono.flatMap(u -> commentsMono.map(c -> new UserComments(u,c)))
+    .subscribe(uc -> log.info(uc.toString()));
+
+  }
+
 }

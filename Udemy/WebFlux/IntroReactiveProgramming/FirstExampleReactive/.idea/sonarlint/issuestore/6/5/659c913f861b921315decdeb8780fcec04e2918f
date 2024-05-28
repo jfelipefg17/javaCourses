@@ -1,14 +1,27 @@
 
-b	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(΄Χω8­ƒακω1
-g	java:S112S"FDefine and throw a dedicated exception instead of using a generic one.(ώ‡ώÿÿÿÿ8®ƒακω1
-g	java:S112C"FDefine and throw a dedicated exception instead of using a generic one.(ϋο•ώÿÿÿÿ8®ƒακω1
-J
-java:S1604d"(Make this anonymous inner class a lambda(Γ®­ωÿÿÿÿ8®ƒακω1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(τ½±ξύÿÿÿÿ8°ƒακω1
-‰
-java:S1130#"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(΄Χω8Ύƒακω1
-
-java:S1130C"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ϋο•ώÿÿÿÿ8Βƒακω1
-€
-java:S1157P"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(δª8Δƒακω1
-G	java:S106U"+Replace this use of System.out by a logger.(μΔΠΘ8Δƒακω1
+C
+java:S1604i"(Make this anonymous inner class a lambda(Γ®­ωÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(τ½±ξύÿÿÿÿ
+[	java:S112("FDefine and throw a dedicated exception instead of using a generic one.(΄Χω
+`	java:S112X"FDefine and throw a dedicated exception instead of using a generic one.(ώ‡ώÿÿÿÿ
+`	java:S112H"FDefine and throw a dedicated exception instead of using a generic one.(ϋο•ώÿÿÿÿ
+`	java:S112q"FDefine and throw a dedicated exception instead of using a generic one.(―Ξ³ψÿÿÿÿ
+a
+java:S1192y"FDefine a constant instead of duplicating this literal "Bruce" 3 times.(ϋΓόϋÿÿÿÿ
+‚
+java:S1130("lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(΄Χω
+‡
+java:S1130H"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ϋο•ώÿÿÿÿ
+y
+java:S1157U"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(δª
+@	java:S106Z"+Replace this use of System.out by a logger.(μΔΠΘ
+‡
+java:S1130q"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(―Ξ³ψÿÿÿÿ
+j
+java:S1602‡"SRemove useless curly braces around statement and then remove useless return keyword(βζάς
+W
+java:S1612‡"@Replace this lambda with method reference 'String::toUpperCase'.(βζάς
+`
+java:S1858"D"u" is already a string, there's no need to call "toString()" on it.(θΨΙϋÿÿÿÿ
+W
+java:S1128"<Remove this unused import 'javax.xml.stream.events.Comment'.(ς©Λÿÿÿÿÿ

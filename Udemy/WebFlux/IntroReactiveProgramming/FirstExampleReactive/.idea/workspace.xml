@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5515efbd-39ea-4075-845a-36986233c81c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../firstReactiveApp/src/main/java/com/springBootReactive/app/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../firstReactiveApp/src/main/java/com/springBootReactive/app/entity/Comments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../firstReactiveApp/src/main/java/com/springBootReactive/app/entity/UserComments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/659c913f861b921315decdeb8780fcec04e2918f" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/659c913f861b921315decdeb8780fcec04e2918f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/3/73f0e7529ad26c294e446d61d5f1768fae4c92d7" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/3/73f0e7529ad26c294e446d61d5f1768fae4c92d7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/8/f8c23aeb84eb346110d7da5245f3e70ff53ca0d2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/8/f8c23aeb84eb346110d7da5245f3e70ff53ca0d2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../firstReactiveApp/src/main/java/com/springBootReactive/app/FirstReactiveProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../firstReactiveApp/src/main/java/com/springBootReactive/app/FirstReactiveProjectApplication.java" afterDir="false" />
@@ -32,6 +37,9 @@
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="LLMProjectSettings">
+    <option name="aiignore_manually_set" value="true" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -68,16 +76,17 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/jfelipefg17/Documents/Programming/JavaCourses/Udemy/WebFlux/IntroReactiveProgramming/FirstExampleReactive/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.FirstReactiveProjectApplication">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="FirstExampleReactive" />
       <working_directory value="$PROJECT_DIR$" />
@@ -139,7 +148,7 @@
       </method>
     </configuration>
     <configuration name="SpringBootReactorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="spring-boot-reactor" />
+      <module name="spring-boot-reactor (3)" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.bolsadeideas.springboot.reactor.app.SpringBootReactorApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,8 +158,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.21" />
-        <option value="bundled-js-predefined-1d06a55b98c1-3d8cd37a7330-JavaScript-IU-241.15989.21" />
+        <option value="bundled-jdk-9f38398b9061-77ac15d44862-intellij.indexing.shared.core-IU-242.10180.25" />
+        <option value="bundled-js-predefined-1d06a55b98c1-cb551a44b0f8-JavaScript-IU-242.10180.25" />
       </set>
     </attachedChunks>
   </component>
@@ -164,7 +173,11 @@
       <updated>1716225409937</updated>
       <workItem from="1716225411063" duration="970000" />
       <workItem from="1716250794492" duration="1145000" />
-      <workItem from="1716253026838" duration="14891000" />
+      <workItem from="1716253026838" duration="16124000" />
+      <workItem from="1716564222271" duration="637000" />
+      <workItem from="1716824183328" duration="627000" />
+      <workItem from="1716920491305" duration="4158000" />
+      <workItem from="1716926102061" duration="1372000" />
     </task>
     <servers />
   </component>
