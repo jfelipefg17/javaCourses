@@ -1,0 +1,34 @@
+<!DOCTYPE>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+  </head>
+
+  <body>
+    <h1 th:text="${title}"></h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>price</th>
+        <th>date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr th:each="product: ${products}">
+        <th th:text="${product.id}"></th>
+        <th th:text="${product.name}"></th>
+        <th th:text="${product.price}"></th>
+        <th th:text="${product.date}"></th>
+      </tr>
+    </tbody>
+
+  </table>
+  </body>
+
+</html>
