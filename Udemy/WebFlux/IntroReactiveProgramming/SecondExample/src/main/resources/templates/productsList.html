@@ -1,34 +1,28 @@
-<!DOCTYPE>
-<html>
-
-  <head>
-    <meta charset="UTF-8">
-    <title th:text="${title}"></title>
-  </head>
-
-  <body>
-    <h1 th:text="${title}"></h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>price</th>
-        <th>date</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr th:each="product: ${products}">
-        <th th:text="${product.id}"></th>
-        <th th:text="${product.name}"></th>
-        <th th:text="${product.price}"></th>
-        <th th:text="${product.date}"></th>
-      </tr>
-    </tbody>
-
-  </table>
-  </body>
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title}">Product List</title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>price</th>
+    <th>date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="product : ${products}">
+    <td th:text="${product.id}"></td>
+    <td th:text="${product.name}"></td>
+    <td th:text="${product.price}"></td>
+    <td th:text="${product.date}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
 </html>
