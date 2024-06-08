@@ -1,5 +1,6 @@
 package com.reactiveApp.SecondExample.documents;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
@@ -20,21 +21,32 @@ public class Product {
   private Double price;
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date date;
+  @Valid
+  private Category category;
+  private String photo;
 
 
   public Product() {
   }
 
-  public Product(String name, Double price) {
+  public Product(String name, Double price, Category category) {
     this.name = name;
     this.price = price;
+    this.category = category;
   }
-
   public Product(String id, String name, Double price, Date date) {
     this.id = id;
     this.name = name;
     this.price = price;
     this.date = date;
+  }
+
+  public Product(String id, String name, Double price, Date date, Category category) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.date = date;
+    this.category = category;
   }
 
   public String getId() {
@@ -67,5 +79,21 @@ public class Product {
 
   public void setDate(Date date) {
     this.date = date;
+  }
+
+  public Category getCategory() {
+    return category;
+  }
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
+
+  public String getPhoto() {
+    return photo;
+  }
+
+  public void setPhoto(String photo) {
+    this.photo = photo;
   }
 }

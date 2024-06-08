@@ -1,32 +1,43 @@
 package com.reactiveApp.SecondExample.controllers;
 
 
+import com.reactiveApp.SecondExample.documents.Category;
 import com.reactiveApp.SecondExample.documents.Product;
 import com.reactiveApp.SecondExample.services.ProductService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.spring6.context.webflux.ReactiveDataDriverContextVariable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.Date;
+import java.util.UUID;
 
 @Controller
 public class ProductController {
+
+  @Value("${config.uploads.path}")
+  private String uploadPath;
 
   @Autowired
   private ProductService service;
 
   private static final Logger log = LoggerFactory.getLogger(ProductController.class);
+
+  @ModelAttribute("categories")
+  public Flux<Category> categoryFlux() {
+    return service.findAllCategory();
+  }
 
   @GetMapping({"/listProducts", "/"})
   public String listProducts(Model model) {
@@ -74,24 +85,42 @@ public class ProductController {
   }
 
   @PostMapping("/createProduct")
-  public Mono<String> saveProduct(@Valid Product product, BindingResult result, Model model) {
+  public Mono<String> saveProduct(@Valid Product product, BindingResult result, Model model, @RequestPart FilePart file) {
 
     if (result.hasErrors()) {
       model.addAttribute("tittle", "Error");
       model.addAttribute("button", "Save");
       return Mono.just("createProductForm");
     } else {
+      Mono<Category> categoryMono = service.findByIdCategory(product.getCategory().getId());
 
-      if (product.getDate() == null) {
-        product.setDate(new Date());
-      }
+      return categoryMono.flatMap(category -> {
+        if (product.getDate() == null) {
+          product.setDate(new Date());
+        }
 
-      return service.save(product).doOnNext(product1 -> {
-        log.info("Product saved : " + product.getName() + " ID : " + product.getId());
-      }).thenReturn("redirect:/listProducts?success=product+save");
+        if(!file.filename().isEmpty()){
+          product.setPhoto(UUID.randomUUID().toString() + "-" + file.filename()
+                  .replace(" ", "")
+                  .replace(":", "")
+                  .replace("\\","")
+          );
+        }
+        product.setCategory(category);
+        return service.save(product);
+      }).doOnNext(product1 -> {
+        log.info("Product saved : " + product1.getName() + " ID : " + product1.getId());
+        log.info("Category saved : " + product1.getCategory().getName() + " ID : " + product1.getCategory().getId());
+      })
+              .flatMap(product1 -> {
+                if (!file.filename().isEmpty()) {
+                  return file.transferTo(new File(uploadPath + product1.getPhoto()));
+                }
+                return Mono.empty();
+              })
+              .thenReturn("redirect:/listProducts?success=product+save");
     }
   }
-
 
   @GetMapping("/editProduct/{id}")
   public Mono<String> editProduct(@PathVariable String id, Model model) {

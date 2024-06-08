@@ -19,7 +19,9 @@
     <th>name</th>
     <th>price</th>
     <th>date</th>
+    <th>Category</th>
     <th>Edit</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -28,6 +30,7 @@
     <td th:text="${product.name}"></td>
     <td th:text="${product.price}"></td>
     <td th:text="${product.date}"></td>
+    <td th:text="${product.category.name}"></td>
     <td><a th:href="@{/editProduct/{id}(id=${product.id})}">Edit</a></td>
     <td><a th:href="@{/deleteProduct/{id}(id=${product.id})}">Delete</a></td>
   </tr>

@@ -1,6 +1,8 @@
 package com.reactiveApp.SecondExample.services;
 
+import com.reactiveApp.SecondExample.DAO.CategoryDAO;
 import com.reactiveApp.SecondExample.DAO.ProductDAO;
+import com.reactiveApp.SecondExample.documents.Category;
 import com.reactiveApp.SecondExample.documents.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,9 @@ public class ProductServiceImpl implements ProductService {
 
   @Autowired
   private ProductDAO dao;
+
+  @Autowired
+  private CategoryDAO categoryDAO;
 
 
   @Override
@@ -51,5 +56,20 @@ public class ProductServiceImpl implements ProductService {
   @Override
   public Mono<Void> delete(String id) {
     return dao.deleteById(id);
+  }
+
+  @Override
+  public Flux<Category> findAllCategory() {
+    return categoryDAO.findAll();
+  }
+
+  @Override
+  public Mono<Category> findByIdCategory(String id) {
+    return categoryDAO.findById(id);
+  }
+
+  @Override
+  public Mono<Category> saveCategory(Category category) {
+    return categoryDAO.save(category);
   }
 }

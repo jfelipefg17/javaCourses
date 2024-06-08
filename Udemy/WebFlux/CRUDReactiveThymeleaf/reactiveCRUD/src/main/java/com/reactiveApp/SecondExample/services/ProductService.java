@@ -1,5 +1,6 @@
 package com.reactiveApp.SecondExample.services;
 
+import com.reactiveApp.SecondExample.documents.Category;
 import com.reactiveApp.SecondExample.documents.Product;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -19,4 +20,10 @@ public interface ProductService {
   public Mono<Product> update(Product product);
 
   public Mono<Void> delete(String id);
+
+  public Flux<Category> findAllCategory();
+
+  public Mono<Category> findByIdCategory(String id);
+
+  public Mono<Category> saveCategory(Category category);
 }
