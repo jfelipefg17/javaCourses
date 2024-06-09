@@ -9,6 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +24,10 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.http.HttpClient;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.Date;
 import java.util.UUID;
@@ -37,6 +46,42 @@ public class ProductController {
   @ModelAttribute("categories")
   public Flux<Category> categoryFlux() {
     return service.findAllCategory();
+  }
+
+  @GetMapping("/uploads/img/{nombreFoto:.+}")
+  public Mono<ResponseEntity<Resource>> verFoto(@PathVariable String nombreFoto) throws MalformedURLException {
+    Path ruta = Paths.get(uploadPath).resolve(nombreFoto).toAbsolutePath();
+    Resource imagen = new UrlResource(ruta.toUri());
+
+    if (!imagen.exists() || !imagen.isReadable()) {
+      throw new RuntimeException("Error: no se puede cargar la imagen " + nombreFoto);
+    }
+
+    return Mono.just(
+            ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + imagen.getFilename() + "\"")
+                    .body(imagen)
+    );
+  }
+
+
+
+  @GetMapping("/watch/{id}")
+  public Mono<String> watch(Model model, @PathVariable String id) {
+
+
+    return service.findById(id)
+            .doOnNext(product -> {
+              model.addAttribute("product", product);
+              model.addAttribute("title", "Product Watch");
+            }).switchIfEmpty(Mono.just(new Product()))
+            .flatMap(product -> {
+              if (product.getId() == null){
+                return Mono.error(new InterruptedException("Product Does Not Exist"));
+              }
+              return Mono.just(product);
+            }).then(Mono.just("watch"))
+            .onErrorResume(ex -> Mono.just("redirect:/listProducts?success=product+does+not+exist"));
   }
 
   @GetMapping({"/listProducts", "/"})

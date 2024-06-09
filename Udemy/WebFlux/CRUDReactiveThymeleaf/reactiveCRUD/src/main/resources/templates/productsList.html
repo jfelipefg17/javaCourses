@@ -26,10 +26,10 @@
   </thead>
   <tbody>
   <tr th:each="product : ${products}">
-    <td th:text="${product.id}"></td>
+    <td><a th:href="@{/watch/{id} (id=${product.id})}" th:text="${#strings.abbreviate(product.id, 10)}"></a> </td>
     <td th:text="${product.name}"></td>
-    <td th:text="${product.price}"></td>
-    <td th:text="${product.date}"></td>
+    <td th:text="${#numbers.formatCurrency(product.price)}"></td>
+    <td th:text="${#calendars.format(product.date, 'dd/MM/yyyy')}"></td>
     <td th:text="${product.category.name}"></td>
     <td><a th:href="@{/editProduct/{id}(id=${product.id})}">Edit</a></td>
     <td><a th:href="@{/deleteProduct/{id}(id=${product.id})}">Delete</a></td>
