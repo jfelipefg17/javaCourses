@@ -1,4 +1,4 @@
 package webFluxRest.ReactiveRest.controllers;
 
-public class ProductController {
+public class ProductController   {
 }
